@@ -22,10 +22,14 @@ public class RequestDaftarProdukActivity extends ListActivity {
 	private static String TAG = RequestDaftarProdukActivity.class.getSimpleName();
 	private ProgressDialog progressDialog;
 	private boolean destroyed = false;
+	private String alamatServer, portServer;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bundle bundle = this.getIntent().getExtras();
+        alamatServer = bundle.getString("serverAddress");
+        portServer = bundle.getString("serverPort");
     }
     
     @Override
@@ -58,7 +62,7 @@ public class RequestDaftarProdukActivity extends ListActivity {
 	public void onStart() {
 		super.onStart();
 
-		new DownloadStatesTask().execute();
+		new DownloadStatesTask(alamatServer, portServer).execute();
 	}
 	
 	private void refreshStates(List<Produk> daftarProduk) {
@@ -72,6 +76,14 @@ public class RequestDaftarProdukActivity extends ListActivity {
 	
 	private class DownloadStatesTask extends AsyncTask<Void, Void, List<Produk>> {
 
+		private String ipServer;
+		private String portServer;
+		
+		public DownloadStatesTask(String ipServer, String portServer) {
+			this.ipServer = ipServer;
+			this.portServer = portServer;
+		}
+
 		@Override
 		protected void onPreExecute() {
 			showLoadingProgressDialog();
@@ -81,7 +93,7 @@ public class RequestDaftarProdukActivity extends ListActivity {
 		protected List<Produk> doInBackground(Void... params) {
 			try {
 				// The URL for making the GET request
-				final String url = "http://localhost:10000/belajar-spring-android-server/master/produk";
+				final String url = "http://"+ipServer+":"+portServer+"/belajar-spring-android-server/master/produk";
 
 				// Set the Accept header for "application/json"
 				HttpHeaders requestHeaders = new HttpHeaders();

@@ -7,13 +7,37 @@
 <TextView  
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content" 
-    android:text="@string/hello"
+    android:text="@string/serverAddress"
     />
+
+<EditText
+    android:id="@+id/txtServerAddress"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:ems="10" 
+    android:inputType="text">
+    <requestFocus />
+</EditText>
+
+<TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="@string/serverPort"
+    />
+
+<EditText
+    android:id="@+id/txtServerPort"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:ems="10" 
+    android:inputType="number">
+</EditText>
 
 <Button
     android:id="@+id/btnDaftarProduk"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="@string/btnDaftarProduk" />
+    android:text="@string/btnDaftarProduk" 
+    android:onClick="requestDataProduk"/>
 
 </LinearLayout>

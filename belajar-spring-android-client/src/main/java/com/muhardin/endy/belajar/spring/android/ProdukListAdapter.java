@@ -42,8 +42,10 @@ public class ProdukListAdapter extends BaseAdapter {
 
 		Produk produk = getItem(position);
 		if (produk != null) {
-			TextView t = (TextView) convertView.findViewById(R.id.nama_produk);
-			t.setText(produk.getNama());
+			TextView txtKode = (TextView) convertView.findViewById(R.id.kode_produk);
+			txtKode.setText(produk.getKode());
+			TextView txtNama = (TextView) convertView.findViewById(R.id.nama_produk);
+			txtNama.setText(produk.getNama());
 		}
 
 		return convertView;

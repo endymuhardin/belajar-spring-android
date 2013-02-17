@@ -11,6 +11,7 @@
     <properties>
         <platform.version>4.1.1.4</platform.version>
         <org.springframework.android.version>1.0.1.RELEASE</org.springframework.android.version>
+		<org.codehaus.jackson-version>1.9.7</org.codehaus.jackson-version>
     </properties>
 
     <dependencies>
@@ -25,6 +26,12 @@
             <artifactId>spring-android-rest-template</artifactId>
             <version>${org.springframework.android.version}</version>
         </dependency> 
+        <dependency>
+			<!-- Using Jackson for JSON marshaling -->
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>${org.codehaus.jackson-version}</version>
+		</dependency>
     </dependencies>
 
     <build>
