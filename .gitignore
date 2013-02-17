@@ -3,3 +3,10 @@ target
 
 # Logger Ignore
 logs
+
+# Eclipse
+.project
+.settings
+.classpath
+bin
+gen
