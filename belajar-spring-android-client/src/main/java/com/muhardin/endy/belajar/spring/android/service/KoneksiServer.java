@@ -15,14 +15,10 @@ import org.springframework.web.client.RestTemplate;
 import com.muhardin.endy.belajar.spring.android.domain.Produk;
 
 public class KoneksiServer {
-	private String ipServer;
-	private String portServer;
-	
-	final String urlDaftarProduk = "http://"+ipServer+":"+portServer+"/belajar-spring-android-server/master/produk";
+	private String urlDaftarProduk;
 
 	public KoneksiServer(String ipServer, String portServer) {
-		this.ipServer = ipServer;
-		this.portServer = portServer;
+		urlDaftarProduk = "http://"+ipServer+":"+portServer+"/belajar-spring-android-server/master/produk";
 	}
 	
 	public List<Produk> ambilDataProduk(){
