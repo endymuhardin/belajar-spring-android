@@ -2,6 +2,8 @@ package com.muhardin.endy.belajar.spring.android;
 
 import java.util.List;
 
+import com.muhardin.endy.belajar.spring.android.domain.Produk;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
